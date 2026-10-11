@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Student login page for the Federal Polytechnic Ede course registration portal."
+    />
+    <title>Federal Polytechnic Ede | Student Login</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body data-page="login">
+    <div class="page-shell">
+      <div class="login-panel">
+        <aside class="brand-panel" aria-label="School information">
+          <div class="brand-box">
+            <div class="brand-mark">F</div>
+            <div>
+              <p class="brand-label">Federal Polytechnic Ede</p>
+              <h1>Student Portal</h1>
+            </div>
+          </div>
+
+          <p class="brand-copy">
+            Access your academic dashboard, manage courses, and complete your
+            semester registration in one place.
+          </p>
+
+          <ul class="feature-list" aria-label="Portal benefits">
+            <li>Course registration</li>
+            <li>Academic records</li>
+            <li>Timetable updates</li>
+          </ul>
+        </aside>
+
+        <main class="form-panel" aria-labelledby="loginTitle">
+          <div class="form-header">
+            <p class="eyebrow">Welcome back</p>
+            <h2 id="loginTitle">Login to continue</h2>
+          </div>
+
+          <form id="loginForm" novalidate>
+            <div class="field">
+              <label for="email">Email address</label>
+              <input
+                id="email"
+                name="email"
+                type="email"
+                placeholder="student@federalpolyede.edu.ng"
+                autocomplete="email"
+                required
+              />
+            </div>
+
+            <div class="field">
+              <label for="password">Password</label>
+              <input
+                id="password"
+                name="password"
+                type="password"
+                placeholder="Enter your password"
+                autocomplete="current-password"
+                required
+              />
+            </div>
+
+            <div class="options-row">
+              <label class="check-wrap" for="rememberMe">
+                <input id="rememberMe" type="checkbox" />
+                <span>Remember me</span>
+              </label>
+
+              <a href="#" class="link-text">Forgot password?</a>
+            </div>
+
+            <button type="submit" class="primary-btn">Sign In</button>
+
+            <p id="formMessage" class="form-message" aria-live="polite"></p>
+          </form>
+
+
+        </main>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>

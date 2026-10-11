@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Federal Polytechnic Ede student home dashboard and portal overview."
+    />
+    <title>Federal Polytechnic Ede | Student Home</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body data-page="home">
+    <header class="topbar">
+      <nav class="topnav container" aria-label="Main navigation">
+        <div class="brand" aria-label="Federal Polytechnic Ede home">
+          <span class="brand-mark">F</span>
+          <div class="brand-text">
+            <p>Federal Polytechnic Ede</p>
+            <small>Student Portal</small>
+          </div>
+        </div>
+
+        <button id="navToggle" class="nav-toggle" type="button" aria-label="Toggle navigation" aria-expanded="false">
+          Menu
+        </button>
+
+        <div class="nav-menu">
+          <a class="active" href="home.html">Home</a>
+
+          <div class="nav-item">
+            <button id="coursesNavBtn" class="nav-link-btn" type="button" aria-expanded="false">
+              Courses
+            </button>
+            <div id="selectedCoursesNav" class="nav-dropdown hidden" aria-live="polite">
+              <span class="dropdown-empty">No registered courses yet</span>
+            </div>
+          </div>
+
+          <button id="logoutBtn" class="logout-btn" type="button">Logout</button>
+        </div>
+      </nav>
+    </header>
+
+    <main class="dashboard container">
+      <section class="welcome-band" aria-labelledby="welcomeTitle">
+        <div>
+          <p class="eyebrow">Dashboard</p>
+          <h1 id="welcomeTitle">Welcome back, <span id="studentName">Student</span></h1>
+          <p id="studentEmail">student@federalpolyede.edu.ng</p>
+        </div>
+        
+      </section>
+
+      <section class="registration-layout" aria-label="Course registration panel">
+        <div id="courseCatalogPanel" class="course-panel panel hidden">
+          <div class="section-head">
+            <div>
+              <p class="eyebrow">Available courses</p>
+              <h2>Semester registration</h2>
+            </div>
+
+            <div class="filters" aria-label="Course filters">
+              <label class="search-wrap" for="searchInput">
+                <span class="sr-only">Search courses</span>
+                <input id="searchInput" type="search" placeholder="Search course or code" />
+              </label>
+
+              <label class="filter-wrap" for="departmentFilter">
+                <span class="sr-only">Filter by department</span>
+                <select id="departmentFilter">
+                  <option value="all">All departments</option>
+                </select>
+              </label>
+            </div>
+          </div>
+
+          <div id="courseGrid" class="course-grid" aria-live="polite"></div>
+          <p id="emptyState" class="empty-state hidden" aria-live="polite">
+            No courses match your current search.
+          </p>
+        </div>
+
+        <aside class="summary-panel panel" aria-labelledby="summaryTitle">
+          <div class="summary-head">
+            <div>
+              <p class="eyebrow">Registration details</p>
+              <h3 id="summaryTitle">Course summary</h3>
+            </div>
+          </div>
+
+          <form id="registrationForm" novalidate>
+            <div class="form-grid">
+              <div class="field">
+                <label for="studentNameInput">Student name</label>
+                <input id="studentNameInput" name="studentNameInput" type="text" placeholder="Enter full name" required />
+              </div>
+
+              <div class="field">
+                <label for="studentIdInput">Student ID</label>
+                <input id="studentIdInput" name="studentIdInput" type="text" placeholder="e.g. FPE/2025/1042" required />
+              </div>
+
+              <div class="field">
+                <label for="studentEmailInput">Email address</label>
+                <input id="studentEmailInput" name="studentEmailInput" type="email" placeholder="student@federalpolyede.edu.ng" required />
+              </div>
+            </div>
+
+            <div class="cards-row">
+              <div class="mini-card">
+                <span>Total units</span>
+                <strong id="totalCredits">0</strong>
+              </div>
+              <div class="mini-card">
+                <span>Remaining</span>
+                <strong id="remainingCredits">18</strong>
+              </div>
+            </div>
+
+            <ul id="selectedCoursesList" class="selected-course-list" aria-live="polite"></ul>
+            <p id="summaryMessage" class="summary-message">No courses selected yet.</p>
+            <p id="registrationMessage" class="form-message" aria-live="polite"></p>
+
+            <div id="printRegistrationSummary" class="print-registration-summary hidden" aria-live="polite">
+              <h4>Federal Polytechnic Ede</h4>
+              <h5>Course Registration Summary</h5>
+              <div class="print-meta">
+                <p><strong>Student:</strong> <span id="printStudentName">-</span></p>
+                <p><strong>Student ID:</strong> <span id="printStudentId">-</span></p>
+                <p><strong>Email:</strong> <span id="printStudentEmail">-</span></p>
+              </div>
+              <ul id="printCourseList" class="print-course-list"></ul>
+            </div>
+
+            <button id="showCoursesBtn" type="button" class="primary-btn" disabled>Register Your Course</button>
+            <button type="submit" class="submit-btn hidden">Submit registration</button>
+            <button type="button" class="print-btn hidden">Print Course Registration</button>
+          </form>
+        </aside>
+      </section>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>
